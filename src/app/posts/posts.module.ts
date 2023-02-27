@@ -1,4 +1,4 @@
-import { PostReducer } from './+state/post.reducer';
+import { PostReducer, POSTS_FEATURE_KEY } from './+state/post.reducer';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,8 +13,7 @@ import { PostActions } from './+state/post.actions';
     CommonModule,
     PostsRoutingModule,
     StoreModule.forFeature(
-      //fromPosts.postsReducer
-      'posts',
+      POSTS_FEATURE_KEY,
       new PostReducer(new PostActions()).reducer
     ),
   ],

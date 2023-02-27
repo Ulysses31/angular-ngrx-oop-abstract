@@ -5,12 +5,13 @@ import { BaseActions } from "src/app/+state/base.actions";
 @Directive()
 export class PostActions extends BaseActions<PostDto> {
   constructor() {
-    const type = "Post Actions";
+    const type: string = "Post Actions";
     super(type);
     console.log("PostActions constructor...");
   }
 
   override ngOnInit(): void {
     this.ngOnInit();
+    console.log('PostActions onInit...');
   }
 }

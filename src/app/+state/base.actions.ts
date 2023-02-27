@@ -12,7 +12,7 @@ export abstract class BaseActions<T> implements OnInit {
 
     this.increment = createAction(
       `[${tt}] Increment`,
-      props<{ payload: T[] }>()
+      props<{ browse: T[] }>()
     );
 
     this.decrement = createAction(`[${tt}] Decrement`);

@@ -5,7 +5,7 @@ import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentsComponent } from './comments.component';
 import { StoreModule } from '@ngrx/store';
 import { CommentActions } from './+state/comment.actions';
-import { CommentReducer } from './+state/comment.reducer';
+import { CommentReducer, COMMENTS_FEATURE_KEY } from './+state/comment.reducer';
 
 @NgModule({
   declarations: [CommentsComponent],
@@ -13,8 +13,7 @@ import { CommentReducer } from './+state/comment.reducer';
     CommonModule,
     CommentsRoutingModule,
     StoreModule.forFeature(
-      //   //fromPosts.postsReducer
-      'comments',
+      COMMENTS_FEATURE_KEY,
       new CommentReducer(new CommentActions()).reducer
     ),
   ],
