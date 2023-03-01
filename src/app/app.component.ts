@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseActions } from './+state/base.actions';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { Component } from '@angular/core';
       </li>
     </ul>
     <router-outlet></router-outlet> `,
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'angular-ngrx-abstract';

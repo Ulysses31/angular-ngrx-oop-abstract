@@ -6,6 +6,8 @@ import { CommentsComponent } from './comments.component';
 import { StoreModule } from '@ngrx/store';
 import { CommentActions } from './+state/comment.actions';
 import { CommentReducer, COMMENTS_FEATURE_KEY } from './+state/comment.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CommentEffects } from './+state/comment.effects';
 
 @NgModule({
   declarations: [CommentsComponent],
@@ -16,6 +18,8 @@ import { CommentReducer, COMMENTS_FEATURE_KEY } from './+state/comment.reducer';
       COMMENTS_FEATURE_KEY,
       new CommentReducer(new CommentActions()).reducer
     ),
+    EffectsModule.forFeature([CommentEffects])
   ],
+  providers: [CommentActions]
 })
 export class CommentsModule {}

@@ -31,7 +31,7 @@ export class CommentsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.getAll().subscribe((comments: CommentDto[]) => {
-      this.store.dispatch(this.actions.increment(comments));
+      this.store.dispatch(this.actions.initBrowse());
     });
   }
 

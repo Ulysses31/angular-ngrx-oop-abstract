@@ -31,9 +31,7 @@ export class PostsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     console.log('PostsComponent constructor...');
-    this.getAll().subscribe((posts: PostDto[]) => {
-      this.store.dispatch(this.actions.increment(posts));
-    });
+    this.store.dispatch(this.actions.initBrowse());
   }
 
   ngAfterViewInit(): void {
@@ -44,12 +42,12 @@ export class PostsComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('PostsComponent onNgOnDestroy...');
   }
 
-  getAll(): Observable<PostDto[]> {
-    return this.service.getAll().pipe(
-      // tap((dto) => console.log(dto)),
-      map((dto) => {
-        return dto;
-      })
-    );
-  }
+  // getAll(): Observable<PostDto[]> {
+  //   return this.service.getAll().pipe(
+  //     // tap((dto) => console.log(dto)),
+  //     map((dto) => {
+  //       return dto;
+  //     })
+  //   );
+  // }
 }

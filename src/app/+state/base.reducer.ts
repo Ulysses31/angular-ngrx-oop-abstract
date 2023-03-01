@@ -25,25 +25,43 @@ export abstract class BaseReducer<T> {
   public reducer = createReducer(
     this.initialState,
     on(
-      this.actions.increment,
+      this.actions.initBrowse,
       (state, action) => (
         console.log(state, action),
         {
           ...state,
-          browse: action,
+          load: {},
+          loaded: false,
+          error: null,
+        }
+      )
+    ),
+    on(
+      this.actions.loadBrowseSuccess,
+      (state, { browse }) => (
+        console.log(state, { browse }),
+        {
+          ...state,
+          browse,
+          load: {},
+          loaded: true,
+          error: null,
+        }
+      )
+    ),
+    on(
+      this.actions.loadBrowseFailure,
+      (state, { error }) => (
+        console.log(state, { error }),
+        {
+          ...state,
+          browse: [],
+          load: {},
+          loaded: true,
+          error,
         }
       )
     )
-    // on(this.actions.decrement as ActionCreator, (state, action) => {
-    //   state = state - 1;
-    //   console.log({ state, action });
-    //   return state;
-    // }),
-    // on(this.actions.reset as ActionCreator, (state, action) => {
-    //   state = 0;
-    //   console.log({ state, action });
-    //   return state;
-    // })
   );
 
   public baseReducer(state: BaseState | undefined, action: Action) {
